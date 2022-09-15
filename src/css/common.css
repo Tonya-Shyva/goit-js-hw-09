@@ -17,6 +17,32 @@ img {
   max-width: 100%;
 }
 
-input#datetime-picker {
+/* input#datetime-picker {
   font-weight: bold;
+} */
+
+button[data-start] {
+  background-color: aquamarine;
+}
+
+.timer {
+  display: flex;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.value {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.label {
+  font-size: small;
+  text-transform: uppercase;
 }

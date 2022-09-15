@@ -8,10 +8,10 @@ const refs = {
   inputText: document.querySelector('#datetime-picker'),
   btnStart: document.querySelector('button[data-start]'),
   timerDiv: document.querySelector('.timer'),
-  spanDays: document.querySelector('span[data-days]'),
-  spanHours: document.querySelector('span[data-hours]'),
-  spanMinutes: document.querySelector('span[data-minutes]'),
-  spanSeconds: document.querySelector('span[data-seconds]'),
+  spanDaysValue: document.querySelector('span[data-days]'),
+  spanHoursValue: document.querySelector('span[data-hours]'),
+  spanMinutesValue: document.querySelector('span[data-minutes]'),
+  spanSecondsValue: document.querySelector('span[data-seconds]'),
 };
 refs.btnStart.disabled = true;
 
@@ -51,6 +51,25 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-function addLeadingZero(convertMs) {
-  return convertMs.toString().padStart(2, '0');
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
+}
+
+refs.btnStart.addEventListener('click', onBtnStartTimerClick);
+
+function onBtnStartTimerClick() {
+  let timer = setInterval(() => {
+    let countdown = new Date(inputText.value) - new Date();
+    refs.btnStart.disabled = true;
+    if (countdown >= 0) {
+      let timeValue = convertMs(countdown);
+      refs.spanDaysValue.textContent = timeValue.days;
+      refs.spanHoursValue.textContent = addLeadingZero(timeValue.hours);
+      refs.spanMinutesValue.textContent = addLeadingZero(timeValue.minutes);
+      refs.spanSecondsValue.textContent = addLeadingZero(timeValue.seconds);
+    } else {
+      clearInterval(timer);
+      Notiflix.Notify.success('The countdown is over');
+    }
+  }, 1000);
 }
