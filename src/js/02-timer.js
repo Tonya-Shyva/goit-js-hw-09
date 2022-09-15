@@ -8,11 +8,14 @@ const refs = {
   inputText: document.querySelector('#datetime-picker'),
   btnStart: document.querySelector('button[data-start]'),
   timerDiv: document.querySelector('.timer'),
+  spanValues: document.querySelectorAll('.value'),
   spanDaysValue: document.querySelector('span[data-days]'),
   spanHoursValue: document.querySelector('span[data-hours]'),
   spanMinutesValue: document.querySelector('span[data-minutes]'),
   spanSecondsValue: document.querySelector('span[data-seconds]'),
 };
+
+console.dir(refs.spanValues);
 refs.btnStart.disabled = true;
 
 const options = {
@@ -63,12 +66,16 @@ function onBtnStartTimerClick() {
     refs.btnStart.disabled = true;
     if (countdown >= 0) {
       let timeValue = convertMs(countdown);
-      refs.spanDaysValue.textContent = timeValue.days;
+      refs.spanDaysValue.textContent = addLeadingZero(timeValue.days);
       refs.spanHoursValue.textContent = addLeadingZero(timeValue.hours);
       refs.spanMinutesValue.textContent = addLeadingZero(timeValue.minutes);
       refs.spanSecondsValue.textContent = addLeadingZero(timeValue.seconds);
+      if (countdown <= 59999) {
+        refs.spanSecondsValue.style.color = 'red';
+      }
     } else {
       clearInterval(timer);
+      refs.spanSecondsValue.style.color = 'black';
       Notiflix.Notify.success('The countdown is over');
     }
   }, 1000);
