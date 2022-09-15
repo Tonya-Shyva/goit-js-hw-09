@@ -59,7 +59,7 @@ refs.btnStart.addEventListener('click', onBtnStartTimerClick);
 
 function onBtnStartTimerClick() {
   let timer = setInterval(() => {
-    let countdown = new Date(inputText.value) - new Date();
+    let countdown = new Date(refs.inputText.value) - new Date();
     refs.btnStart.disabled = true;
     if (countdown >= 0) {
       let timeValue = convertMs(countdown);
