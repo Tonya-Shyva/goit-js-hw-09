@@ -6,10 +6,9 @@ const refs = {
   inputAmount: document.querySelector('input[name="amount"]'),
   btnSubmitPromise: document.querySelector('button[type="submit"]'),
 };
-console.dir(refs);
 
 function createPromise(position, delay) {
-  return new Promise((resolve, reject) => {
+  const promise = new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
@@ -19,10 +18,13 @@ function createPromise(position, delay) {
       }
     }, delay);
   });
+  return promise;
 }
 
-refs.btnSubmitPromise.addEventListener('click', e => {
-  e.preventDefault();
+refs.btnSubmitPromise.addEventListener('click', onBtnSubmitPromiseClick);
+
+function onBtnSubmitPromiseClick(evt) {
+  evt.preventDefault();
   let firstDelay = Number(refs.inputDelay.value);
   let delayStep = Number(refs.inputStep.value);
   for (let i = 0; i < refs.inputAmount.value; i += 1) {
@@ -38,4 +40,4 @@ refs.btnSubmitPromise.addEventListener('click', e => {
         );
       });
   }
-});
+}
