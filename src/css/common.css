@@ -17,9 +17,9 @@ img {
   max-width: 100%;
 }
 
-/* input#datetime-picker {
+input#datetime-picker {
   font-weight: bold;
-} */
+}
 
 button[data-start] {
   background-color: aquamarine;
