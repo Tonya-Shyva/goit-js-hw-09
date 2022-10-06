@@ -7,14 +7,14 @@ const refs = {
   btnSubmitPromise: document.querySelector('button[type="submit"]'),
 };
 
-function createPromise(position, delay) {
+function createPromise(amount, delay) {
   const promise = new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
-        resolve({ position, delay });
+        resolve(amount, delay);
       } else {
-        reject({ position, delay });
+        reject(amount, delay);
       }
     }, delay);
   });
@@ -29,15 +29,11 @@ function onBtnSubmitPromiseClick(evt) {
   let delayStep = Number(refs.inputStep.value);
   for (let i = 0; i < refs.inputAmount.value; i += 1) {
     createPromise(1 + i, firstDelay + i * delayStep)
-      .then(({ position, delay }) => {
-        Notiflix.Notify.success(
-          `✅ Fulfilled promise ${position} in ${delay}ms`
-        );
+      .then((amount, delay) => {
+        Notiflix.Notify.success(`✅ Fulfilled promise ${amount} in ${delay}ms`);
       })
-      .catch(({ position, delay }) => {
-        Notiflix.Notify.failure(
-          `❌ Rejected promise ${position} in ${delay}ms`
-        );
+      .catch((amount, delay) => {
+        Notiflix.Notify.failure(`❌ Rejected promise ${amount} in ${delay}ms`);
       });
   }
 }
