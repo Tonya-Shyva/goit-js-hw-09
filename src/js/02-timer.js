@@ -5,7 +5,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 const refs = {
-  inputText: document.querySelector('#datetime-picker'),
+  input: document.querySelector('#datetime-picker'),
   btnStart: document.querySelector('button[data-start]'),
   timerDiv: document.querySelector('.timer'),
   spanValues: document.querySelectorAll('.value'),
@@ -15,7 +15,7 @@ const refs = {
   spanSecondsValue: document.querySelector('span[data-seconds]'),
 };
 
-console.dir(refs.spanValues);
+// console.dir(refs.spanValues);
 refs.btnStart.disabled = true;
 
 const options = {
@@ -33,7 +33,7 @@ const options = {
   },
 };
 
-flatpickr(refs.inputText, options);
+flatpickr(refs.input, options);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -62,7 +62,7 @@ refs.btnStart.addEventListener('click', onBtnStartTimerClick);
 
 function onBtnStartTimerClick() {
   let timer = setInterval(() => {
-    let countdown = new Date(refs.inputText.value) - new Date();
+    let countdown = new Date(refs.input.value) - new Date();
     refs.btnStart.disabled = true;
     if (countdown >= 0) {
       let timeValue = convertMs(countdown);
