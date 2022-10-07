@@ -1,0 +1,2 @@
+const t=document.querySelector(".response"),e=new Promise(((t,e)=>{const n=Math.random();setTimeout((()=>{n>.5?t("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_SjKN5DxsjoA7-np-rigXRiYgMS9nM0sAKUiln4VwMQ&s"):e("https://hostiq.ua/wiki/wp-content/uploads/2021/05/03-error-404-not-found-1.png")}),1e3)}));console.log(e),e.then((e=>{t.insertAdjacentHTML("beforeend",`<img src=${e} alt='cat' width="500"/>`)})).catch((e=>t.insertAdjacentHTML("beforeend",`<img src=${e} alt='404' width="500"/>`)));
+//# sourceMappingURL=03-promises.9adb4fc5.js.map
