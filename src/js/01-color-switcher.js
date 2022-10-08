@@ -14,6 +14,8 @@ stopBtnRef.addEventListener('click', onStopBtnClick);
 function onStartBtnClick() {
   startBtnRef.disabled = true; //кнопка start стає вимкненою(недієздатною)
   stopBtnRef.disabled = false;
+  // якщо хочу, щоб одразу при натисканні на кнопку змінився колір
+  document.body.style.background = getRandomHexColor();
 
   timerId = setInterval(() => {
     document.body.style.background = getRandomHexColor();
