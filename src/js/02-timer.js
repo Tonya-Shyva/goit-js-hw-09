@@ -80,3 +80,25 @@ function onBtnStartTimerClick() {
     }
   }, 1000);
 }
+// -------------------------------------------------------
+
+// -------------------------------------------------------
+
+// let endTime = 0;
+
+// function onBtnStartTimerClick() {
+//   let timerId = setInterval(() => {
+//     const currentTime = Date.now();
+//     endTime = timerSetup - currentTime;
+//     const timers = convertMs(endTime);
+
+//     updateInterface(timers);
+//     //   display.days = 111;
+//     console.log(display.days);
+//     if (endTime > 1000) {
+//       startBtn.disabled = true;
+//     } else {
+//       clearInterval(timerId);
+//     }
+//   }, 1000);
+// }
