@@ -64,37 +64,37 @@ setInterval(() => {
 //     // 360 / 60 = 6deg  хвилинна стрілка
 //     // 360 / 60 = 6deg  секундна стрілка
 
-// ---------------promise (lesson 9.2)------------------------------------
-const container = document.querySelector('.response');
-// https://hostiq.ua/wiki/ukr/404-not-found-error/#gallery-3
-// https://en.wiktionary.org/wiki/cat#/media/File:Cat03.jpg
-const promise = new Promise((resolve, reject) => {
-  const random = Math.random(); // генерує число від 0 до 1
-  setTimeout(() => {
-    if (random > 0.5) {
-      resolve(
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_SjKN5DxsjoA7-np-rigXRiYgMS9nM0sAKUiln4VwMQ&s'
-      );
-    } else {
-      reject(
-        'https://hostiq.ua/wiki/wp-content/uploads/2021/05/03-error-404-not-found-1.png'
-      );
-    }
-  }, 1000);
-});
-console.log(promise);
-promise
-  .then(response => {
-    container.insertAdjacentHTML(
-      'beforeend',
-      `<img src=${response} alt='cat' width="500"/>`
-    );
-  })
-  .catch(error =>
-    container.insertAdjacentHTML(
-      'beforeend',
-      `<img src=${error} alt='404' width="500"/>`
-    )
-  );
-// // resolve = response
-// // reject = err
+// // ---------------promise (lesson 9.2)------------------------------------
+// const container = document.querySelector('.response');
+// // https://hostiq.ua/wiki/ukr/404-not-found-error/#gallery-3
+// // https://en.wiktionary.org/wiki/cat#/media/File:Cat03.jpg
+// const promise = new Promise((resolve, reject) => {
+//   const random = Math.random(); // генерує число від 0 до 1
+//   setTimeout(() => {
+//     if (random > 0.5) {
+//       resolve(
+//         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_SjKN5DxsjoA7-np-rigXRiYgMS9nM0sAKUiln4VwMQ&s'
+//       );
+//     } else {
+//       reject(
+//         'https://hostiq.ua/wiki/wp-content/uploads/2021/05/03-error-404-not-found-1.png'
+//       );
+//     }
+//   }, 1000);
+// });
+// console.log(promise);
+// promise
+//   .then(response => {
+//     container.insertAdjacentHTML(
+//       'beforeend',
+//       `<img src=${response} alt='cat' width="500"/>`
+//     );
+//   })
+//   .catch(error =>
+//     container.insertAdjacentHTML(
+//       'beforeend',
+//       `<img src=${error} alt='404' width="500"/>`
+//     )
+//   );
+// // // resolve = response
+// // // reject = err
